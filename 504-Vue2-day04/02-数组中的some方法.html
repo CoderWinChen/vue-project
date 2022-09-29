@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 数组中的some方法，遇到匹配的项则返回true -->
+    <script>
+        const arr = ['张三','李四','王五','赵六']
+        // forEach一旦开始就停不下来了
+        // arr.forEach((item,index)=>{
+        //     console.log('ok'); //打印4次，说明return不起作用
+        //     if (item === '王五'){
+        //         // 如果匹配的值是王五，返回
+        //         console.log(index);
+        //         return
+        //     }
+        // })
+
+
+        // some方法可以解决这个问题
+        arr.some((item,index)=>{
+            console.log('ok'); //打印3次，说明匹配成功就会终止
+            if (item === '王五'){
+                return true
+            }
+        })
+
+    </script>
+</body>
+</html>

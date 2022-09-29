@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+
+<body>
+
+    <!-- 声明vue的控制的视图，通过插值表达式实现数据与视图的渲染 -->
+    <div class="box">
+        {{username}}
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '.box', //通过el，声明vue要控制的视图
+            data: { //声明数据
+                username: '张三'
+            }
+        })
+    </script>
+</body>
+
+</html>

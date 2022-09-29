@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击我发送POST请求</button>
+    <script src="./js/axios.js"></script>
+    <script>
+        const btn = document.querySelector('button')
+        btn.addEventListener('click', async () => {
+            const result = await axios({
+                method: 'GET',
+                url: 'http://localhost:8080/getBook'
+            })
+            // 使用await，就必须配合async使用
+            // 使用了await,那么拿到的结果就不需要使用then回调函数接收了
+            // 使用了await,拿到的就不是Promise对象,如果使用axios,拿到的就是Promise
+            console.log(result.data);
+
+        })
+    </script>
+</body>
+
+</html>

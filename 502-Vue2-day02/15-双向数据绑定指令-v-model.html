@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--双向数据绑定： dom的值改变，data会同步，data改变，dom的值也会更新 -->
+        <input type="text" v-model="username">
+        <hr>
+        <!-- 属性绑定指令只是单项数据绑定，就是data中username改变，值才会改变，Dom的值改变，data中不会改变 -->
+        <input type="text" :value="username">
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                username: 'zhangsan'
+            }
+        })
+    </script>
+</body>
+
+</html>

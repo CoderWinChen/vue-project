@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="r"> <br>
+        <input type="text" v-model="g"> <br>
+        <input type="text" v-model="b">
+        <hr>
+        <!-- 重复性代码很多，都是rgb(${r},${g},${b}) -->
+        <div class="box" :style="{backgroundColor: `rgb(${r},${g},${b})`}">
+            {{`rgb(${r},${g},${b})`}}
+        </div>
+        <button @click=show>按钮</button>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                r: 0,
+                g: 0,
+                b: 0
+            },
+            methods: {
+                show() {
+                    console.log(`this box's color is rgb(${this.r},${this.g},${this.b})`);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

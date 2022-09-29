@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+
+<body>
+    <!--注意点1: 双向数据绑定只有配合表单元素才有作用 -->
+    <div id="app">
+        <input type="text" v-model="username">
+
+        <!-- div元素绑定v-model没有意义，因为div元素不能修改data里面的值 -->
+        <div v-model="username"></div>
+
+        <!--select中option的对应关系,是通过value和select双向绑定的数据控制的 -->
+        <select v-model="city">
+            <option value="请选择城市"></option>
+            <option value="1">北京</option>
+            <option value="2">上海</option>
+            <option value="3">厦门</option>
+        </select>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                username: '张三',
+                city: 2
+            }
+        })
+    </script>
+</body>
+
+</html>

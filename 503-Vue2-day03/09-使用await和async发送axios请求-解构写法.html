@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        书名：<input type="text" name="book_name" id="bn" autocomplete="off"> <br>
+        作者：<input type="text" name="author" id="at" autocomplete="off"> <br>
+        <input type="submit" value="提交">
+    </form>
+    <script src="./js/axios.js"></script>
+    <script>
+        const formTag = document.querySelector('form')
+        formTag.addEventListener('submit', async (e) => {
+            e.preventDefault()
+            const bn = document.querySelector('#bn')
+            const at = document.querySelector('#at')
+
+            // 解构赋值写法:下面代码拿到的是6个变量的返回值
+            // const result = {6}
+            
+            // const result = await axios({
+            //     method: 'POST',
+            //     url: 'http://localhost:8080/addBook',
+            //     data: {
+            //         book_name: bn.value,
+            //         author: at.value
+            //     }
+            // })
+            
+            // 解构赋值
+            const {data} = await axios({
+                method: 'POST',
+                url: 'http://localhost:8080/addBook',
+                data: {
+                    book_name: bn.value,
+                    author: at.value
+                }
+            })
+            console.log(data);
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--按键修饰符只对键盘事件有用  -->
+        <input type="text" @keyup.esc="clearContent">
+        <input type="text" @keyup.enter="sendAjax">
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            methods: {
+                clearContent(e) {
+                    e.target.value = ''
+                },
+                sendAjax(){
+                    console.log('发送ajax请求');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

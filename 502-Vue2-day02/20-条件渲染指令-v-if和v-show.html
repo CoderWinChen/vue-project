@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-if="flag">我是v-if的内容</div>
+        <div v-show="flag">我是v-show的内容</div>
+
+        <hr>
+        <p>请输入你的成绩等级:</p>
+        <input type="text" v-model="level">
+        <p v-if="level === 'A' ">优秀</p>
+        <p v-else-if="level === 'B' ">良好</p>
+        <p v-else-if="level === 'C' ">一般</p>
+        <p v-else-if="level === 'D' ">差</p>
+        <p v-else></p>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                level: '',
+                flag: true
+            },
+           
+        })
+    </script>
+</body>
+</html>

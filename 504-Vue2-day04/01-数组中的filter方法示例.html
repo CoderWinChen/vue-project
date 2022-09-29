@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 数组中的filter方法 -->
+    <script>
+        const arr = [
+            {
+                id: 1,
+                name: '张三',
+                age: 23,
+                gender: '男'
+            },
+            {
+                id: 2,
+                name: '李四',
+                age: 25,
+                gender: '男'
+            },
+            {
+                id: 3,
+                name: '王五',
+                age: 25,
+                gender: '女'
+            },
+            {
+                id: 4,
+                name: '七七',
+                age: 23,
+                gender: '女'
+            }
+        ]
+
+        // 过滤掉id为1的数据，并返回新的数组
+        const newArr = arr.filter(item => item.id !== 1)
+        console.log(newArr);
+    </script>
+</body>
+
+</html>

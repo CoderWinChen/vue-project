@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./js/axios.js"></script>
+    <script>
+        const result = axios({
+           method: 'GET',
+           url: 'http://localhost:8080/getBook' 
+        })
+        // console.log(result); //axios的返回值是一个Promise对象
+        result.then((result)=>{
+            // console.log(result);
+            // 拿到的不是真实的数据，而是经过封装的数据，真实数据在data里面
+
+            // Object
+            // config: { url: 'http://localhost:8080/getBook', method: 'get', headers: { … }, transformRequest: Array(1), transformResponse: Array(1), … }
+            // data: { status: 0, msg: '你好', data: Array(2) }
+            // headers: { content - length: '228', content - type: 'application/json; charset=utf-8' }
+            // request: XMLHttpRequest { readyState: 4, timeout: 0, withCredentials: false, upload: XMLHttpRequestUpload, onreadystatechange: ƒ, … }
+            // status: 200
+            // statusText: "OK"
+            // [[Prototype]]: Object
+            console.log(result.data);
+        }).catch(err=>{
+            console.log(err.message);
+        })
+    </script>
+</body>
+</html>

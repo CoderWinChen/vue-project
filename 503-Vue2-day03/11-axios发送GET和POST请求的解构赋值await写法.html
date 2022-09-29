@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点我发送GET请求</button>
+    <button>点我发送POST请求</button>
+    <script src="./js/axios.js"></script>
+
+    <script>
+        const btn = document.querySelectorAll('button')[0]
+        const btn2 = document.querySelectorAll('button')[1]
+        // 发送GET请求
+        btn.addEventListener('click', async () => {
+            const { data: res } = await axios.get('http://localhost:8080/getBook')
+            console.log(res);
+        })
+
+        // 发送POST请求
+        btn2.addEventListener('click', async () => {
+            const { data: res } = await axios.post('http://localhost:8080/addBook', {
+                author: '漳卅',
+                book_name: '阿三大苏打'
+            })
+            console.log(res);
+        })
+    </script>
+</body>
+
+</html>

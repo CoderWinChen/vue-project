@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        1+3的结果是：{{id1+id2}}
+        <!-- 会被解析为list-你好 -->
+        <input type="text" :placeholder="'list-'+tips">
+        <p :id="id1+id2"></p>
+        <!-- 
+            <p id=4></p>
+         -->
+
+         <!-- 里面可以写js代码 -->
+         <input type="text" :placeholder="tips.split('').reverse().join('')">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                id1: 1,
+                id2: 3,
+                tips: '你好'
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="r"> <br>
+        <input type="text" v-model="g"> <br>
+        <input type="text" v-model="b">
+        <hr>
+        <div class="box" :style="{backgroundColor: rgb}">
+            {{this.rgb}}
+        </div>
+        <button @click="show">按钮</button>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                r: 0,
+                g: 0,
+                b: 0
+            },
+
+            computed: {
+                // computed 定义的时候为方法格式，使用的时候为普通属性，可以打印this看下
+                rgb() {
+                    return `rgb(${this.r},${this.g},${this.b})`
+                }
+            },
+            methods: {
+                show() {
+                    // console.log(`box's color is ${this.rgb}`);
+                    console.log(this);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

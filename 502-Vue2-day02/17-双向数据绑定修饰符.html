@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 表单数据需要数字类型的时候使用 -->
+        <!-- 将字符串的值转换为number类型 -->
+        <input type="text" v-model.number="n1"> + <input type="text" v-model.number="n2"> = {{n1 + n2}}
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                n1: 1,
+                n2: 2,
+            }
+        })
+    </script>
+</body>
+</html>

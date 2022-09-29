@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 数组中的reduce方法
+
+        // 需求:将被选中的水果的总价累加起来
+        const arr = [
+            {
+                id: 1,
+                fruit: '苹果',
+                state: true,
+                price: 20,
+                count: 5
+            },
+            {
+                id: 2,
+                fruit: '香蕉',
+                state: false,
+                price: 30,
+                count: 2
+            },
+            {
+                id: 3,
+                fruit: '榴莲',
+                state: true,
+                price: 80,
+                count: 3
+            }
+        ]
+
+        // let totalPrice = 0
+        // // 1. 拿到被选中的水果
+        // const selectedFruit = arr.filter(item => item.state)
+        // // 2.拿到它们的价格
+        // selectedFruit.forEach(item => {
+        //     // 3.累加
+        //     totalPrice += item.count * item.price
+        // })
+
+        // 简写就用链式编程
+        // console.log(totalPrice);
+
+
+        // 也可以用reduce方法实现以上需求
+        // reduce语法: 数组.reduce((累加的结果,每一项)=>{ 处理过程 }, 初始值 )
+        // const result = arr.filter(item => item.state).reduce((totalPrice, item) => {
+        //     return totalPrice += item.price * item.count
+        // }, 0)
+
+        // reduce的简写形式
+        const result = arr.filter(item => item.state).reduce((amt,item)=>amt+=item.price*item.count,0)
+        console.log(result);
+    </script>
+</body>
+
+</html>

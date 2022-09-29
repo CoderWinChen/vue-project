@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+
+<body>
+    <!-- .lazy -->
+    <div id="app">
+        <!-- 不让数据实时更新,等到输入完成后/按下Enter或者鼠标离开才更新, -->
+        <input type="text" v-model.lazy="username">
+        {{username}}
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                username: 'zhangsan'
+            }
+        })
+    </script>
+</body>
+
+</html>

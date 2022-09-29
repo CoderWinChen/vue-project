@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>请输入你的成绩等级:</p>
+        <input type="text" v-model.number="scores" @keyup.enter="operateScore(scores)">
+        <p v-if="level === 'A' ">优秀</p>
+        <p v-else-if="level === 'B' ">良好</p>
+        <p v-else-if="level === 'C' ">一般</p>
+        <p v-else-if="level === 'D' ">差</p>
+        <p v-else></p>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                scores: '',
+                level: '',
+                flag: true
+            },
+            methods: {
+                operateScore(scores){
+                    console.log(scores);
+                    if (scores <= 60){
+                        this.level = 'E'
+                    }
+                    else if (scores <=70){
+                        this.level = 'D'
+                    }
+                    else if (scores <= 80) {
+                        this.level = 'C'
+                    }
+                    else if (scores <= 90) {
+                        this.level = 'B'
+                    }
+                    else {
+                        this.level = 'A'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

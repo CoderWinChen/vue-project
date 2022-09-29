@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        count的值是：{{count}}
+        <!-- 可以通过()传递参数，传递的参数可以是固定写死的，可以是data数据源里面的 -->
+        <button v-on:click="add(n)">+{{n}}</button>
+        <button v-on:click="sub(n)">-{{n}}</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                n: 10,
+                count: 0
+            },
+            methods: {
+                add(n) {
+                    this.count += n
+                },
+                sub(n) {
+                    this.count -= n
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

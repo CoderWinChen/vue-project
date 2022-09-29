@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="info.username">
+        <input type="text" v-model="info.address">
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                info: {
+                    username: '张三',
+                    address: '深圳市'
+                }
+            },
+            watch: {
+                // 使用方法格式侦听info对象，无法侦听
+                // info(newVal){
+                //     console.log(newVal);
+                // }
+
+                // 使用对象格式侦听info对象，可以侦听info对象下所有的属性
+                // info: {
+                //     handler(newVal){
+                //         console.log(newVal);
+                //     },
+                //     deep: true //开启深度侦听
+                //     // immediate: true
+                // }
+
+                // 如果只是向侦听对象里面的子属性，则使用单引号括起来
+                'info.address'(newVal){
+                    console.log(newVal);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

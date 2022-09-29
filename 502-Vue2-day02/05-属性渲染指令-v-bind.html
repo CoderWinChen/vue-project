@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用v-bind: 来为属性动态绑定值 -->
+        <input type="text" v-bind:placeholder="tips">
+        <!-- 可以使用:代替v-bind:，：是语法糖 -->
+        <input type="text" :placeholder="tips">
+        <img :src="photo" alt="">
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                tips: '请输入用户名',
+                photo: './images/dot2.gif'
+            }
+        })
+    </script>
+</body>
+
+</html>

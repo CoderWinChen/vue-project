@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p v-text="username"></p>
+        <p v-text="gender">性别</p> 
+        <!-- v-text的值就是data里面定义的属性名，会覆盖掉原有的dom元素的内容，也就是"性别"会被"男"覆盖 -->
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app', //告诉vue控制app这块区域
+            data: {
+                username:'张三',
+                gender: '男'
+            }
+        })
+    </script>
+</body>
+
+</html>

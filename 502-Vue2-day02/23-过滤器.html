@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ DateStr | formateDate}}</p>
+        <p>{{message | upper}}</p>
+    </div>
+
+
+    <div id="app2">
+        <p>{{message | upperCase}}</p>
+    </div>
+
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                DateStr: new Date(),
+                message: 'hello world'
+            },
+            // 定义私有过滤器
+            filters: {
+                formateDate(date) {
+                    console.log(date);
+                    const year = date.getFullYear()
+                    const month = date.getMonth() + 1
+                    const day = date.getDate()
+                    date = `${year}年${month}月${day}日`
+                    // 注意过滤器必须要return 才会起作用
+                    return date
+                },
+                upper(str) {
+                    // 拿到message中第一个字符，并转换为大写
+                    // const first = str.charAt(0).toUpperCase();
+                    // // 截取后面的字符，两者进行拼接
+                    // const other = str.slice(1);
+                    // return first.concat(other);
+
+                    return str.charAt(0).toUpperCase().concat(str.slice(1))  //链式编程
+                }
+            }
+        })
+
+        // 全局过滤器和私有过滤器，命名一致，会优先调用私有的，私有的没有才会找全局的
+        Vue.filter('upperCase', (str) => {
+            console.log(str);
+            return str.toUpperCase()
+        })
+        const vm2 = new Vue({
+            el: '#app2',
+            data: {
+                message: 'wuyu'
+            },
+            filters: {
+                // 私有过滤器
+                upperCase(str) {
+                    return str.charAt(0).toUpperCase().concat(str.slice(1))
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

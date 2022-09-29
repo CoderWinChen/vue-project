@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{info}}</p>
+        <!-- 可以渲染带有html的数据 -->
+        <p v-html="message"></p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                info: '<h5>好好学习</h5>',
+                message: '<h5 style="color:red">月薪过万</h5>'
+            }
+        })
+    </script>
+</body>
+
+</html>

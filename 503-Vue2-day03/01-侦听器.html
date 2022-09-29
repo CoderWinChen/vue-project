@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue-2.6.12.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="username" @keyup.esc="clearAll">
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                username: ''
+            },
+            methods: {
+                clearAll(){
+                    this.username = ''
+                }
+            },
+            // 定义侦听器
+            watch: {
+                // 监听哪个数据的变化就把数据名作为方法名使用
+                // 监听username属性,第一个参数是新的值，第二个参数是旧的值 [新前旧后]
+                // username(newVal, oldVal) {
+                //     console.log(newVal, oldVal);
+                // }
+
+                // 应用场景：判断用户名是否被占用
+                username(newVal) {
+                    if (newVal === '') return 
+                    // ajax做法
+                    // $.get('http://localhost:9000/findUser/' + newVal, (result) => {
+                    //     console.log(result);
+                    // })
+
+                    // 原生做法
+                    // 创建xhr对象
+                    const xhr = new XMLHttpRequest()
+                    // 打开一个请求
+                    xhr.open('GET','http://localhost:9000/findUser/'+newVal)
+                    // 发送请求
+                    xhr.send()
+                    // 监听处理函数
+                    xhr.onreadystatechange = ()=>{
+                        // 准备的状态码和发送的状态码
+                        if (xhr.readyState === 4 && xhr.status === 200){
+                            // 拿到响应结果
+                            console.log(xhr.responseText);
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
